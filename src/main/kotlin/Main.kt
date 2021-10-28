@@ -1,25 +1,40 @@
 import kotlin.random.Random
 
-fun main(args: Array<String>) {
+fun main() {
 
-    //val inputArray = arrayOf(6, 4, 2, 3, 5, 8, 5, 6, 7, 3)
-    val inputArray = Array<Int>(Random.nextInt(5, 20)) { Random.nextInt(1, 10)}
+    val inputArray = arrayOf(6, 4, 2, 3, 5, 8, 5, 6, 7, 3)
 
-    val windowSize = 4
+    val queue = QueueViaStacks<Int>()
+    queue.pushBack(1)
+    println(queue.toString())
+    queue.pushBack(2)
+    println(queue.toString())
+    queue.pushBack(3)
+    println(queue.toString())
+    queue.popFront()
+    println(queue.toString())
+    queue.pushBack(4)
+    println(queue.toString())
 
-    println("The size of Input Array: ${inputArray.size}")
-    println("Input Array: ${inputArray.joinToString()}")
-    println("Local minis: ${findLocalMinWithWindow(inputArray, windowSize).first.joinToString()}")
-    println("Operations: ${findLocalMinWithWindow(inputArray, windowSize).second}")
+//
+//    val inputArray = Array<Int>(Random.nextInt(10, 20)) { Random.nextInt(1, 100)}
+//
+//    val windowSize = 3
+//
+//    println("The size of Input Array: ${inputArray.size}")
+//    println("The size of Window: $windowSize")
+//    println("Input Array: ${inputArray.joinToString()}")
+//    println("Local minis: ${findLocalMinWithWindow(inputArray, windowSize).first.joinToString()}")
+//    println("Operations: (${inputArray.size} + 1 - $windowSize) * $windowSize = ${findLocalMinWithWindow(inputArray, windowSize).second}")
 
 }
 
 fun findLocalMinWithWindow(inputArray: Array<Int>, windowSize: Int): Pair<Array<Int>, Int> {
     var operationsCount = 0
     val minArraySize = (inputArray.size + 1) - windowSize
-    //if (minArraySize <= 0) return arrayOf()
+    if (minArraySize <= 0) return Pair(arrayOf(), 0)
 
-    var minArray = Array<Int>(minArraySize) { 0 }
+    val minArray = Array<Int>(minArraySize) { 0 }
     //println(minArray.joinToString())
 
     for (i in 0 until inputArray.size-windowSize+1) {

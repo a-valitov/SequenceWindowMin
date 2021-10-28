@@ -12,6 +12,7 @@ class Stack<T> {
     }
 
     fun isEmpty() : Boolean = stackElements.isEmpty()
+    fun getSize() : Int = stackElements.size
 
     override fun toString() : String = stackElements.toString()
 }
