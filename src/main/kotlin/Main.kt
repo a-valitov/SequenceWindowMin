@@ -1,20 +1,24 @@
 import kotlin.random.Random
+import kotlin.reflect.typeOf
 
 fun main() {
 
-    val inputArray = arrayOf(6, 4, 2, 3, 5, 8, 5, 6, 7, 3)
+    val inputArray = arrayOf(6, 2, 4, 3, 5, 8, 5, 6, 7, 3)
 
-    val queue = QueueViaStacks<Int>()
-    queue.pushBack(1)
-    println(queue.toString())
-    queue.pushBack(2)
-    println(queue.toString())
-    queue.pushBack(3)
-    println(queue.toString())
-    queue.popFront()
-    println(queue.toString())
-    queue.pushBack(4)
-    println(queue.toString())
+    //val queue = QueueViaStacks<Int>()
+
+    val stackMin = StackWithMin()
+
+    for(elem in inputArray) stackMin.push(elem)
+    println(stackMin.toString())
+    stackMin.pop()
+    println(stackMin.toString())
+    stackMin.pop()
+    println(stackMin.toString())
+    stackMin.pop()
+    println(stackMin.toString())
+    stackMin.pop()
+    println(stackMin.toString())
 
 //
 //    val inputArray = Array<Int>(Random.nextInt(10, 20)) { Random.nextInt(1, 100)}
